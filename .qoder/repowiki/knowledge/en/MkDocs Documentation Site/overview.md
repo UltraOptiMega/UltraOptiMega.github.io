@@ -1,0 +1,1 @@
+Static documentation site built with MkDocs using the Material theme, containing a single landing page and configuration for live-reload development and production builds.

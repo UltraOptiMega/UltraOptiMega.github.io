@@ -1,0 +1,1 @@
+Development: `mkdocs serve` for live-reloading docs server. Production: `mkdocs build` to generate the static site. New projects can be scaffolded with `mkdocs new [dir-name]`.

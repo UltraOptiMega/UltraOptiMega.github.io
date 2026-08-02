@@ -1,0 +1,75 @@
+site_name: 左拾遗
+site_description: 一个程序员的 AI 拾遗之旅 — 记录学习、思考与实践
+site_url: https://zuoshiyi.dev
+site_author: Bing
+
+nav:
+  - 首页: index.md
+  - Books: books.md
+  - Tags: tags.md
+  - 关于: about.md
+
+extra_css:
+  - stylesheets/extra.css
+
+theme:
+  name: material
+  custom_dir: overrides
+  tagline: 虽休勿休，虽畏勿畏
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - scheme: default
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: 切换到暗色模式
+    - scheme: slate
+      primary: blue-grey
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: 切换到亮色模式
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/your-username
+      name: GitHub
+    - icon: material/rss
+      link: /feed_rss_created.xml
+      name: RSS 订阅
+  copyright: >
+    Copyright &copy; 2026 Bing ·
+    Powered by <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank">Material for MkDocs</a>
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+
+plugins:
+  - macros
+  - rss:
+      match_path: posts/.*
+      date_from_meta:
+        default_timezone: Asia/Shanghai
+        as_creation: date
+      use_git: false

@@ -1,0 +1,2 @@
+- Documentation pages are plain Markdown files placed directly under `docs/`, with `index.md` serving as the site homepage.
+- Site-wide appearance and behavior are centralized in `mkdocs.yml` rather than per-page overrides.

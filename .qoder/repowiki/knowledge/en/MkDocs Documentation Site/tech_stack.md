@@ -1,0 +1,1 @@
+MkDocs static site generator with the Material for MkDocs theme and pymdownx extensions for syntax highlighting, fenced code blocks, tabs, admonitions, and HTML-in-Markdown.
