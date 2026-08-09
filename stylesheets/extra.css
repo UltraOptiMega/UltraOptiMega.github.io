@@ -1,0 +1,64 @@
+/* 副标题 */
+.md-header__tagline {
+  font-size: 0.65rem;
+  opacity: 0.55;
+  margin-left: 0.5rem;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+/* 文章链接平滑过渡 */
+.md-content a {
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+/* 首页文章列表 */
+.post-list h3 {
+  margin-bottom: 0.2rem;
+}
+
+.post-list h3 a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.post-list p:first-of-type {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+}
+
+/* Books 卡片 */
+.book-card {
+  padding: 0 0.5rem;
+}
+
+.book-card h3 {
+  margin-bottom: 0.1rem;
+}
+
+.book-card h3 a {
+  text-decoration: none;
+}
+
+/* 代码块圆角 */
+.highlight pre {
+  border-radius: 8px;
+}
+
+/* admonition 圆角 */
+.admonition {
+  border-radius: 8px;
+}
+
+/* 页脚美化 */
+.md-footer {
+  margin-top: 2rem;
+}
+
+/* 内容区域最大宽度 */
+.md-grid {
+  max-width: 52rem;
+}
