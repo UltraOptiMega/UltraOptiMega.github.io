@@ -66,6 +66,7 @@ markdown_extensions:
   - md_in_html
 
 plugins:
+  - search
   - macros
   - rss:
       match_path: posts/.*
