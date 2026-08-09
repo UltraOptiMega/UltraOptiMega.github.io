@@ -3,8 +3,21 @@
 <cite>
 **Referenced Files in This Document**
 - [index.md](file://docs/index.md)
+- [about.md](file://docs/about.md)
+- [books.md](file://docs/books.md)
+- [tags.md](file://docs/tags.md)
+- [posts/prompt-engineering.md](file://docs/posts/prompt-engineering.md)
+- [books/build-a-llm.md](file://docs/books/build-a-llm.md)
 - [mkdocs.yml](file://mkdocs.yml)
 </cite>
+
+## Update Summary
+**Changes Made**
+- Updated project structure overview to reflect new content organization with posts directory and books section
+- Added documentation for the tags system implementation
+- Included about page as part of the documentation structure
+- Updated navigation setup to match actual mkdocs.yml configuration
+- Enhanced content creation workflow examples with real markdown files from the repository
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -28,37 +41,43 @@ The Ultra Blogs documentation site uses MkDocs, a static site generator optimize
 
 ## Project Structure Overview
 
-The Ultra Blogs documentation follows a simple yet effective structure:
+The Ultra Blogs documentation follows a structured yet flexible organization designed for blog-style content:
 
 ```mermaid
 graph TB
 root["Project Root"] --> docs["docs/ directory"]
 root --> mkdocs["mkdocs.yml"]
 docs --> index["index.md"]
-docs --> guides["guides/"]
-docs --> api["api/"]
-docs --> tutorials["tutorials/"]
-docs --> examples["examples/"]
-guides --> getting_started["getting-started.md"]
-guides --> advanced_topics["advanced-topics.md"]
-api --> endpoints["endpoints.md"]
-api --> models["models.md"]
-tutorials --> setup_tutorial["setup-tutorial.md"]
-tutorials --> usage_tutorial["usage-tutorial.md"]
-examples --> code_examples["code-examples.md"]
-examples --> sample_projects["sample-projects.md"]
+docs --> about["about.md"]
+docs --> books["books.md"]
+docs --> tags["tags.md"]
+docs --> posts_dir["posts/"]
+docs --> books_dir["books/"]
+docs --> stylesheets["stylesheets/"]
+posts_dir --> prompt_eng["prompt-engineering.md"]
+books_dir --> build_llm["build-a-llm.md"]
+stylesheets --> extra_css["extra.css"]
 ```
 
 **Diagram sources**
 - [mkdocs.yml:1-50](file://mkdocs.yml#L1-L50)
 
-The current minimal structure includes:
+The current documentation structure includes:
 - `docs/` - Main documentation directory containing all Markdown files
 - `docs/index.md` - Entry point and main landing page
+- `docs/about.md` - About page providing project information
+- `docs/books.md` - Books section index page
+- `docs/tags.md` - Tags system index page
+- `docs/posts/` - Directory for blog-style posts
+- `docs/books/` - Directory for book-length content
+- `docs/stylesheets/` - Custom CSS styling
 - `mkdocs.yml` - Configuration file for site settings and navigation
 
 **Section sources**
 - [index.md:1-20](file://docs/index.md#L1-L20)
+- [about.md:1-15](file://docs/about.md#L1-L15)
+- [books.md:1-10](file://docs/books.md#L1-L10)
+- [tags.md:1-10](file://docs/tags.md#L1-L10)
 - [mkdocs.yml:1-30](file://mkdocs.yml#L1-L30)
 
 ## Markdown Syntax Guide
@@ -199,36 +218,22 @@ This is a sentence with a footnote reference.[^1]
 
 ### Directory Structure Best Practices
 
-Organize your documentation logically to improve navigation and maintainability:
+The Ultra Blogs documentation follows a blog-oriented structure that separates different types of content:
 
 ```
 docs/
 ├── index.md                    # Main landing page
-├── getting-started.md          # Quick start guide
-├── user-guide/                 # User-focused documentation
-│   ├── installation.md
-│   ├── configuration.md
-│   └── usage.md
-├── developer-guide/            # Developer-focused content
-│   ├── architecture.md
-│   ├── contributing.md
-│   └── testing.md
-├── api-reference/              # API documentation
-│   ├── endpoints.md
-│   ├── models.md
-│   └── utilities.md
-├── tutorials/                  # Step-by-step tutorials
-│   ├── basic-setup.md
-│   ├── advanced-features.md
-│   └── migration-guide.md
-├── examples/                   # Code examples and samples
-│   ├── basic-example.md
-│   ├── advanced-example.md
-│   └── integration-examples.md
-└── assets/                     # Images and media files
-    ├── images/
-    ├── diagrams/
-    └── downloads/
+├── about.md                    # About page with project information
+├── books.md                    # Books section index
+├── tags.md                     # Tags system index
+├── posts/                      # Blog-style posts
+│   ├── prompt-engineering.md   # Example post content
+│   └── [your-posts].md         # Additional posts
+├── books/                      # Book-length content
+│   ├── build-a-llm.md          # Example book content
+│   └── [your-books].md         # Additional books
+└── stylesheets/                # Custom CSS styling
+    └── extra.css               # Custom styles
 ```
 
 ### File Naming Conventions
@@ -239,7 +244,7 @@ Follow consistent naming patterns for better organization:
 - **Separate words with hyphens**: `user-guide.md`, not `userguide.md`
 - **Be descriptive but concise**: `installation-guide.md`, not `install.md`
 - **Avoid special characters**: Stick to alphanumeric and hyphens only
-- **Use plural for collections**: `tutorials/`, `examples/`, `assets/`
+- **Use plural for collections**: `posts/`, `books/`, `assets/`
 
 ### Content Hierarchy Strategy
 
@@ -292,23 +297,12 @@ theme:
 
 nav:
   - Home: index.md
-  - Getting Started: getting-started.md
-  - User Guide:
-      - Installation: user-guide/installation.md
-      - Configuration: user-guide/configuration.md
-      - Usage: user-guide/usage.md
-  - Developer Guide:
-      - Architecture: developer-guide/architecture.md
-      - Contributing: developer-guide/contributing.md
-  - API Reference:
-      - Endpoints: api-reference/endpoints.md
-      - Models: api-reference/models.md
-  - Tutorials:
-      - Basic Setup: tutorials/basic-setup.md
-      - Advanced Features: tutorials/advanced-features.md
-  - Examples:
-      - Basic Example: examples/basic-example.md
-      - Integration Examples: examples/integration-examples.md
+  - About: about.md
+  - Posts:
+      - Prompt Engineering: posts/prompt-engineering.md
+  - Books:
+      - Build an LLM: books/build-a-llm.md
+  - Tags: tags.md
 ```
 
 ### Navigation Best Practices
@@ -386,100 +380,91 @@ Before publishing any documentation:
 
 ## Advanced Documentation Patterns
 
-### API Reference Documentation
+### Blog Post Structure
 
-Create comprehensive API documentation with consistent formatting:
-
-```markdown
-# API Endpoints
-
-## Authentication
-
-### POST /api/auth/login
-
-Authenticate a user and receive an access token.
-
-#### Request Body
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| email | string | Yes | User's email address |
-| password | string | Yes | User's password |
-
-#### Response
-
-**Success (200 OK)**
-```json
-{
-  "token": "eyJhbGciOiJIUzI1NiIs...",
-  "expires_in": 3600,
-  "user_id": "usr_123456"
-}
-```
-
-**Error (401 Unauthorized)**
-```json
-{
-  "error": "Invalid credentials",
-  "message": "Email or password is incorrect"
-}
-```
-
-#### Code Examples
-
-**JavaScript**
-```javascript
-fetch('/api/auth/login', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    email: 'user@example.com',
-    password: 'password123'
-  })
-})
-.then(response => response.json())
-.then(data => console.log(data));
-```
-
-**Python**
-```python
-import requests
-
-response = requests.post('/api/auth/login', json={
-    'email': 'user@example.com',
-    'password': 'password123'
-})
-
-print(response.json())
-```
-```
-
-### Tutorial Structure
-
-Design effective tutorials with progressive complexity:
+Create engaging blog-style content with proper formatting:
 
 ```markdown
-# Building Your First Blog Post
+# Prompt Engineering Guide
 
-## Prerequisites
-- Ultra Blogs installed and running
-- Basic understanding of Markdown syntax
-- A text editor or IDE
+## Introduction
+Brief overview of what prompt engineering is and why it matters...
 
-## Step 1: Create Your First Post
-Navigate to the posts directory and create a new file...
+## Core Concepts
+### Understanding Context
+Explain how context affects AI responses...
 
-## Step 2: Add Rich Content
-Enhance your post with images, code blocks, and formatting...
+### Crafting Effective Prompts
+Provide practical examples and techniques...
 
-## Step 3: Configure Metadata
-Add frontmatter for SEO and customization...
+## Advanced Techniques
+### Chain-of-Thought Prompting
+Detailed explanation with examples...
 
-## Step 4: Preview and Publish
-Preview your changes locally before publishing...
+### Few-Shot Learning
+How to provide examples in prompts...
 
-## Next Steps
-Explore advanced features like custom themes and plugins...
+## Conclusion
+Summary of key takeaways and next steps...
+```
+
+### Book Content Organization
+
+Structure longer-form content like books with chapters and sections:
+
+```markdown
+# Building Your Own LLM
+
+## Chapter 1: Introduction to Large Language Models
+### What are LLMs?
+Overview of large language models...
+
+### Why Build Your Own?
+Motivation and benefits...
+
+## Chapter 2: Data Preparation
+### Collecting Training Data
+Methods for gathering quality data...
+
+### Preprocessing Techniques
+Cleaning and preparing datasets...
+
+## Chapter 3: Model Architecture
+### Transformer Architecture
+Deep dive into transformer models...
+
+### Customizing for Your Needs
+Adapting architecture for specific use cases...
+```
+
+### Tags System Implementation
+
+Organize content with a comprehensive tagging system:
+
+```markdown
+# Tags Index
+
+## Technology Tags
+- **Python**: Programming language content
+- **JavaScript**: Web development content
+- **AI/ML**: Artificial intelligence and machine learning
+- **DevOps**: Development operations and deployment
+
+## Topic Tags
+- **Tutorial**: Step-by-step guides
+- **Reference**: API and technical references
+- **Guide**: How-to documentation
+- **News**: Latest updates and announcements
+
+## Usage Pattern
+When creating new content, add relevant tags in the frontmatter:
+```yaml
+---
+title: "My Post Title"
+tags: [python, tutorial, ai-ml]
+date: 2024-01-01
+---
+```
 ```
 
 ### Comparison Tables
